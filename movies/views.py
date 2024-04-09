@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from django.http import HttpResponseServerError
+from django.http import JsonResponse, HttpResponse
 
 # Create your views here.
-from .models import Movie, Actor, Genre
+from .models import Movie, Actor, Genre, Rating
 from django.shortcuts import get_object_or_404
-from .forms import ReviewForm
+from .forms import ReviewForm, RatingForm
 
 
 
@@ -54,11 +55,27 @@ def movies(request):
 
 
 
+# def movie_detail(request, slug):
+#     # Полное описание фильма
+#     movie = get_object_or_404(Movie, url=slug)
+#     context = {
+#         'movie': movie,
+#     }
+#     return render(request, 'movies/moviesingle.html', context)
+
 def movie_detail(request, slug):
     # Полное описание фильма
     movie = get_object_or_404(Movie, url=slug)
+    rating = Rating.objects.get(movie_id = movie)
+    
+    # Создаем экземпляр формы
+    star_form = RatingForm()
+
+    # Добавляем форму в контекст
     context = {
         'movie': movie,
+        'star_form': star_form,
+        'rating': rating,
     }
     return render(request, 'movies/moviesingle.html', context)
 
@@ -84,6 +101,29 @@ def actorview(request, slug):
         'actor': actor,
     }
     return render(request, 'movies/actor.html', context)
+
+
+class AddStarRating(View):
+    """Добавление рейтинга фильму"""
+    def get_client_ip(self, request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip
+
+    def post(self, request):
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            Rating.objects.update_or_create(
+                ip=self.get_client_ip(request),
+                movie_id=int(request.POST.get("movie")),
+                defaults={'star_id': int(request.POST.get("star"))}
+            )
+            return HttpResponse(status=201)
+        else:
+            return HttpResponse(status=400)
     
 
     
