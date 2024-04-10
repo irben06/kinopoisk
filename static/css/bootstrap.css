@@ -1112,6 +1112,7 @@ pre code {
     -ms-flex: 0 0 33.333333%;
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
+    
   }
   .col-md-5 {
     -webkit-box-flex: 0;

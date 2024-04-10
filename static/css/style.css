@@ -617,6 +617,7 @@ ul.tic-info li {
 .product-shoe-info {
     padding: 0 0 15px 0;
     border: 1px solid #e4e4e4;
+    height: 82%;
 }
 
 .item-info-product h4 a {
@@ -812,6 +813,7 @@ ul.list-unstyled.w3layouts-icons.clients li span:hover {
 /*-- //testimonials --*/
 .men-thumb-item {
     position: relative;
+    
 }
 
 .item-info-product h4 {

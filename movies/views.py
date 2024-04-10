@@ -66,7 +66,12 @@ def movies(request):
 def movie_detail(request, slug):
     # Полное описание фильма
     movie = get_object_or_404(Movie, url=slug)
-    rating = Rating.objects.get(movie_id = movie)
+    try:
+        # Пытаемся получить рейтинг фильма, если он есть
+        rating = Rating.objects.get(movie_id=movie)
+    except Rating.DoesNotExist:
+        # Если рейтинг не найден, устанавливаем его в None
+        rating = None
     
     # Создаем экземпляр формы
     star_form = RatingForm()
