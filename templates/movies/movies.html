@@ -40,22 +40,6 @@
         </div>
       {% endfor %}
     </div>
-    <div class="pagination">
-      <span class="step-links">
-        {% if movies.has_previous %}
-          <a href="?page=1{% for year in selected_years %}&year={{ year }}{% endfor %}{% for genre in selected_genres %}&genre={{ genre }}{% endfor %}">&laquo; first</a>
-          <a href="?page={{ movies.previous_page_number }}{% for year in selected_years %}&year={{ year }}{% endfor %}{% for genre in selected_genres %}&genre={{ genre }}{% endfor %}">previous</a>
-        {% endif %}
-
-        <span class="current">
-          Page {{ movies.number }} of {{ movies.paginator.num_pages }}.
-        </span>
-
-        {% if movies.has_next %}
-          <a href="?page={{ movies.next_page_number }}{% for year in selected_years %}&year={{ year }}{% endfor %}{% for genre in selected_genres %}&genre={{ genre }}{% endfor %}">next</a>
-          <a href="?page={{ movies.paginator.num_pages }}{% for year in selected_years %}&year={{ year }}{% endfor %}{% for genre in selected_genres %}&genre={{ genre }}{% endfor %}">last &raquo;</a>
-        {% endif %}
-      </span>
-    </div>
+    {% include "include/pagination.html" %}
   </div>
 {% endblock movie %}

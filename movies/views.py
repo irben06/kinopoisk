@@ -8,9 +8,6 @@ from .models import Movie, Actor, Genre, Rating
 from django.shortcuts import get_object_or_404
 from .forms import ReviewForm, RatingForm
 
-
-
-
 # class MoviesView(View):
 #     # "Список фильмов"
 #     def get(self, request):
@@ -68,18 +65,6 @@ def movies(request):
     }
     return render(request, 'movies/movies.html', context)
 
-
-
-
-
-# def movie_detail(request, slug):
-#     # Полное описание фильма
-#     movie = get_object_or_404(Movie, url=slug)
-#     context = {
-#         'movie': movie,
-#     }
-#     return render(request, 'movies/moviesingle.html', context)
-
 def movie_detail(request, slug):
     # Полное описание фильма
     movie = get_object_or_404(Movie, url=slug)
@@ -123,6 +108,11 @@ def actorview(request, slug):
         'actor': actor,
     }
     return render(request, 'movies/actor.html', context)
+
+def Search(request):
+    paginate_by = 3
+
+    
 
 
 class AddStarRating(View):
