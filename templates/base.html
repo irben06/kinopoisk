@@ -1,4 +1,5 @@
-﻿{% load static %}
+﻿{% load static recaptcha3 %}
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -23,6 +24,9 @@
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900"
           rel="stylesheet">
     <!-- //Fonts -->
+
+    {% recaptcha_init %}
+    {% recaptcha_ready action_name='homepage'  %}
 </head>
 <body>
 <div id="page" class="page"><!-- mian-content -->
@@ -42,7 +46,9 @@
   {% endblock content %}
   {% include 'include/footer.html' %}
 </div>
+
 <script src="{% static 'js/script.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://twitter.github.com/hogan.js/builds/3.0.1/hogan-3.0.1.js"></script>
 </body>
 </html>

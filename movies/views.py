@@ -25,16 +25,22 @@ from .forms import ReviewForm, RatingForm
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from django.http import QueryDict
+
 def movies(request):
-    # Список фильмов
     all_movies = Movie.objects.filter(draft=False)
     genres = Genre.objects.all()
     years = all_movies.values("year").distinct()
 
+    # Получаем параметры из URL
     selected_years = request.GET.getlist('year')
     selected_genres = request.GET.getlist('genre')
-    
-    if selected_years and selected_genres:
+    search_query = request.GET.get('search')
+
+    # Применяем фильтры
+    if search_query:
+        movies = all_movies.filter(title__icontains=search_query)
+    elif selected_years and selected_genres:
         movies = all_movies.filter(year__in=selected_years, genres__in=selected_genres).distinct()
     elif selected_years:
         movies = all_movies.filter(year__in=selected_years)
@@ -42,18 +48,23 @@ def movies(request):
         movies = all_movies.filter(genres__in=selected_genres).distinct()
     else:
         movies = all_movies
-    
-    paginator = Paginator(movies, 2)  # Show 9 movies per page
 
+    paginator = Paginator(movies, 2)
     page = request.GET.get('page')
+
     try:
         movies = paginator.page(page)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
         movies = paginator.page(1)
     except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
         movies = paginator.page(paginator.num_pages)
+    
+    # Создаем новый QueryDict для сохранения текущего состояния параметров
+    query_params = QueryDict(mutable=True)
+    query_params.setlist('year', selected_years)
+    query_params.setlist('genre', selected_genres)
+    if search_query:
+        query_params['search'] = search_query
     
     context = {
         'movies': movies,
@@ -61,9 +72,12 @@ def movies(request):
         'years': years,
         'selected_years': selected_years,
         'selected_genres': selected_genres,
-        
+        'search_query': search_query,
+        'query_params': query_params.urlencode(),  # Передаем параметры обратно в шаблон
     }
     return render(request, 'movies/movies.html', context)
+
+
 
 def movie_detail(request, slug):
     # Полное описание фильма
@@ -77,12 +91,14 @@ def movie_detail(request, slug):
     
     # Создаем экземпляр формы
     star_form = RatingForm()
+    form = ReviewForm()
 
     # Добавляем форму в контекст
     context = {
         'movie': movie,
         'star_form': star_form,
         'rating': rating,
+        'form': form,
     }
     return render(request, 'movies/moviesingle.html', context)
 
@@ -112,7 +128,7 @@ def actorview(request, slug):
 def Search(request):
     paginate_by = 3
 
-    
+
 
 
 class AddStarRating(View):

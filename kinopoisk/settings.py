@@ -38,10 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 
     'movies',
     'ckeditor',
     'ckeditor_uploader',
+    'snowpenguin.django.recaptcha3',
+    
+    'contact',
+    
     
 ]
 
@@ -53,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'kinopoisk.urls'
@@ -203,10 +210,15 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+RECAPTCHA_PUBLIC_KEY = "6Ld3FbkpAAAAABnEmmpVDbrcQUkz6lN_rrL7MbA7"
+RECAPTCHA_PRIVATE_KEY = "6Ld3FbkpAAAAAEJSs5ukNSC2dG4Egexj1lKchwBI"
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHOLD = 0.5
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+SITE_ID = 1

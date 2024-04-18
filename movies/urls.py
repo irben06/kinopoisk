@@ -6,6 +6,7 @@ from .import views
 app_name = 'movies'
 
 
+
 # urlpatterns = [
 #     path('', views.MoviesView.as_view(), name='index'),
 #     path('<slug:slug>', views.MovieDetailView.as_view(), name='movie_detail'),
