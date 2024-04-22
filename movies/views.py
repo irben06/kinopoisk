@@ -82,12 +82,18 @@ def movies(request):
 def movie_detail(request, slug):
     # Полное описание фильма
     movie = get_object_or_404(Movie, url=slug)
+    
     try:
         # Пытаемся получить рейтинг фильма, если он есть
         rating = Rating.objects.get(movie_id=movie)
     except Rating.DoesNotExist:
         # Если рейтинг не найден, устанавливаем его в None
         rating = None
+
+     # Получаем доступные года и жанры
+    all_movies = Movie.objects.filter(draft=False)
+    genres = Genre.objects.all()
+    years = all_movies.values("year").distinct()
     
     # Создаем экземпляр формы
     star_form = RatingForm()
@@ -99,6 +105,8 @@ def movie_detail(request, slug):
         'star_form': star_form,
         'rating': rating,
         'form': form,
+        'genres': genres,
+        'years': years,
     }
     return render(request, 'movies/moviesingle.html', context)
 

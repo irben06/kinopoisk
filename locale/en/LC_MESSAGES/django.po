@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-22 03:13+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:5
+msgid "Select an image to embed"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:27
+msgid "Browse for the image you want, then click 'Embed Image' to continue..."
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:29
+msgid ""
+"No images found. Upload images using the 'Image Button' dialog's 'Upload' "
+"tab."
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:50
+msgid "Images in: "
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:62
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:80
+msgid "Embed Image"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:146
+msgid "Play Slideshow"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:147
+msgid "Pause Slideshow"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:148
+msgid "&lsaquo; Previous Photo"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:149
+msgid "Next Photo &rsaquo;"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:150
+msgid "Next &rsaquo;"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\ckeditor_uploader\templates\ckeditor\browse.html:151
+msgid "&lsaquo; Prev"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\myvenv\Lib\site-packages\django\views\templates\default_urlconf.html:220
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\django\views\templates\default_urlconf.html:221
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\django\views\templates\default_urlconf.html:229
+msgid "Django Documentation"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\django\views\templates\default_urlconf.html:230
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\django\views\templates\default_urlconf.html:238
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\django\views\templates\default_urlconf.html:239
+msgid "Get started with Django"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\django\views\templates\default_urlconf.html:247
+msgid "Django Community"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\django\views\templates\default_urlconf.html:248
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: .\myvenv\Lib\site-packages\django\views\templates\directory_index.html:8
+#: .\myvenv\Lib\site-packages\django\views\templates\directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\templates\movies\moviesingle.html:22
+msgid "Год"
+msgstr "Year"
+
+#: .\templates\movies\moviesingle.html:23
+msgid "Страна"
+msgstr "Country"
+
+#: .\templates\movies\moviesingle.html:24
+msgid "Слоган"
+msgstr "Slogan"
+
+#: .\templates\movies\moviesingle.html:26
+msgid "Режиссер"
+msgstr "Director"
+
+#: .\templates\movies\moviesingle.html:32
+msgid "Актеры"
+msgstr "Actors"
+
+#: .\templates\movies\moviesingle.html:38
+msgid "Жанр"
+msgstr "Genre"
+
+#: .\templates\movies\moviesingle.html:44
+msgid "Премьера в мире"
+msgstr "World Premiere"
+
+#: .\templates\movies\moviesingle.html:47
+msgid "Бюджет"
+msgstr "Budget"
+
+#: .\templates\movies\moviesingle.html:49
+msgid "Сборы в США"
+msgstr "Fees in the USA"
+
+#: .\templates\movies\moviesingle.html:50
+msgid "Сборы в мире"
+msgstr "Fees in the world"
