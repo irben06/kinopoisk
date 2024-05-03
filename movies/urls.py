@@ -21,5 +21,4 @@ urlpatterns = [
     path('review/<int:pk>/', add_review, name="add_review"),
     path('actor/<str:slug>/',actorview, name='actorview'),
     
-    
 ]

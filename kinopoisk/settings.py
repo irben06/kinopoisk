@@ -49,9 +49,10 @@ INSTALLED_APPS = [
     'snowpenguin.django.recaptcha3',
     
     'contact',
-    'allauth',
-    'allauth.account',
-    
+
+    'users',
+    'crispy_forms',
+    "crispy_bootstrap4"
 ]
 
 MIDDLEWARE = [
@@ -63,7 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'kinopoisk.urls'
@@ -101,10 +102,7 @@ DATABASES = {
     }
 }
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
+
 
 
 # Password validation
@@ -243,3 +241,9 @@ RECAPTCHA_SCORE_THRESHOLD = 0.5
 
 
 SITE_ID = 1
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+LOGIN_REDIRECT_URL = 'movies:index'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'login'
