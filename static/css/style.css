@@ -386,7 +386,7 @@ li > a:only-child:after {
 
 
 .main-banner {
-    background: url(../images/banner.jpg)no-repeat center;
+    background: url(../images/newbanner2.jpg)no-repeat center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -410,7 +410,7 @@ li > a:only-child:after {
 .bg1 {
     background-color: rgba(0, 0, 0, 0);
     margin-top: 0;
-    background-image: url('../single-post-pic.jpg');
+    
 }
 
 /*-- place holder --*/
@@ -813,6 +813,7 @@ ul.list-unstyled.w3layouts-icons.clients li span:hover {
 /*-- //testimonials --*/
 .men-thumb-item {
     position: relative;
+    width: 100%;
     
 }
 
@@ -864,6 +865,11 @@ li.breadcrumb-item a {
 /*--//breadcrumbr--*/
 /*--/shop--*/
 /*-- special deals --*/
+
+.col-md-4.img-deals {
+    width: 35%;
+    height: 180px;
+}
 
 .img-deal1 {
     padding: 0;
@@ -1518,6 +1524,7 @@ a.move-top span {
     .img-deals {
         float: left;
         width: 40%;
+        
     }
 
     .img-deal1 {

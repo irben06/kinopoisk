@@ -49,7 +49,7 @@ def movies(request):
     else:
         movies = all_movies
 
-    paginator = Paginator(movies, 2)
+    paginator = Paginator(movies, 3)
     page = request.GET.get('page')
 
     try:
